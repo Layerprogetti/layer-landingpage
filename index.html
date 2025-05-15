@@ -69,30 +69,14 @@
 			visibility: hidden;
 		}
 
-		/* Footer centrato */
+		/* Footer centrato e semplice */
 		#mastfoot .container {
 			text-align: center;
-			display: flex;
-			flex-direction: column;
-			align-items: center;
-			gap: 10px;
+			padding: 20px 0;
 		}
 		#mastfoot p {
 			margin: 0;
 			font-weight: 700;
-		}
-		#mastfoot nav.bottom-nav ul {
-			list-style: none;
-			padding: 0;
-			margin: 0;
-			display: flex;
-			gap: 20px;
-			justify-content: center;
-		}
-		#mastfoot nav.bottom-nav ul li a {
-			text-decoration: none;
-			color: inherit;
-			font-weight: 100;
 		}
 
 		/* Contact info hidden by default */
@@ -107,7 +91,6 @@
 		.top-nav ul li.contact-click {
 			cursor: pointer;
 		}
-
 	</style>
 
 	<script>
@@ -121,7 +104,7 @@
 				setTimeout(() => {
 					intro.style.display = 'none';
 					document.documentElement.classList.remove('loading');
-				}, 1000); // corrisponde alla durata della transizione
+				}, 1000); // durata della transizione
 			}, 3000);
 		});
 
@@ -156,13 +139,12 @@
 				<ul>
 					<li class="current"><a href="index.html">Home</a></li>
 					<li><a href="about.html">About</a></li>
-					<li class="last contact-click" onclick="toggleContactInfo()">Contact</li>
+					<li class="last contact-click" onclick="toggleContactInfo()">Contatti</li>
 				</ul>
 			</nav>
 			<div id="contact-info">
-				<p>Nome: Mario</p>
-				<p>Cognome: Rossi</p>
-				<p>Email: mario.rossi@example.com</p>
+				<p>Francesco Toscano</p>
+				<p>f.toscano@layerprogetti.com</p>
 			</div>
 		</div>
 	</header><!-- end #masthead -->
@@ -195,14 +177,7 @@
 
 	<footer id="mastfoot">
 		<div class="container txt-center">
-			<p>LAYER Retail Design</p>
-			<nav class="bottom-nav">
-				<ul>
-					<li><a href="index.html">Home</a></li>
-					<li><a href="about.html">About</a></li>
-					<li><a onclick="toggleContactInfo()" style="cursor:pointer;">Contact</a></li>
-				</ul>
-			</nav>
+			<p>LAYER Retail Design è Main Designer per COSPE</p>
 		</div>
 	</footer>
 	
