@@ -7,7 +7,11 @@
 	<meta name="description" content="Project Description" />
 	<meta name="keywords" content="Project Keywords" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-	<title>LAYER Retail Design</title>	
+	<title>LAYER Retail Design</title>
+
+	<!-- Google Fonts: Poppins Thin (100) and Bold (700) -->
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;700&display=swap" rel="stylesheet">
+
 	<link href="css/style.css" rel="stylesheet" type="text/css" />
 	<link href="css/responsive.css" rel="stylesheet" type="text/css" />
 	<link rel="stylesheet" href="css/slimbox2.css" type="text/css" media="screen" />	
@@ -19,6 +23,15 @@
 	<script src="js/site.js" type="text/javascript"></script>
 
 	<style>
+		/* Font settings */
+		body {
+			font-family: 'Poppins', sans-serif;
+			font-weight: 100; /* Thin for normal text */
+		}
+		h1, h2, h3, h4, h5, h6, .site-title, .site-description {
+			font-weight: 700; /* Bold for titles */
+		}
+
 		/* Intro logo styles */
 		#intro {
 			position: fixed;
@@ -55,6 +68,46 @@
 		body.loading *:not(#intro) {
 			visibility: hidden;
 		}
+
+		/* Footer centrato */
+		#mastfoot .container {
+			text-align: center;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			gap: 10px;
+		}
+		#mastfoot p {
+			margin: 0;
+			font-weight: 700;
+		}
+		#mastfoot nav.bottom-nav ul {
+			list-style: none;
+			padding: 0;
+			margin: 0;
+			display: flex;
+			gap: 20px;
+			justify-content: center;
+		}
+		#mastfoot nav.bottom-nav ul li a {
+			text-decoration: none;
+			color: inherit;
+			font-weight: 100;
+		}
+
+		/* Contact info hidden by default */
+		#contact-info {
+			display: none;
+			margin-top: 10px;
+			font-weight: 100;
+			font-size: 0.9em;
+		}
+
+		/* Change cursor to pointer on Contact menu item */
+		.top-nav ul li.contact-click {
+			cursor: pointer;
+		}
+
 	</style>
 
 	<script>
@@ -71,6 +124,16 @@
 				}, 1000); // corrisponde alla durata della transizione
 			}, 3000);
 		});
+
+		// Funzione per toggle dati contatto
+		function toggleContactInfo() {
+			const info = document.getElementById('contact-info');
+			if(info.style.display === 'block') {
+				info.style.display = 'none';
+			} else {
+				info.style.display = 'block';
+			}
+		}
 	</script>
 </head>
 
@@ -93,9 +156,14 @@
 				<ul>
 					<li class="current"><a href="index.html">Home</a></li>
 					<li><a href="about.html">About</a></li>
-					<li class="last"><a href="mailto:ajbiscaro@gmail.com">Contact</a></li>
+					<li class="last contact-click" onclick="toggleContactInfo()">Contact</li>
 				</ul>
 			</nav>
+			<div id="contact-info">
+				<p>Nome: Mario</p>
+				<p>Cognome: Rossi</p>
+				<p>Email: mario.rossi@example.com</p>
+			</div>
 		</div>
 	</header><!-- end #masthead -->
 
@@ -132,7 +200,7 @@
 				<ul>
 					<li><a href="index.html">Home</a></li>
 					<li><a href="about.html">About</a></li>
-					<li><a href="mailto:ajbiscaro@gmail.com">Contact</a></li>
+					<li><a onclick="toggleContactInfo()" style="cursor:pointer;">Contact</a></li>
 				</ul>
 			</nav>
 		</div>
