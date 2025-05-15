@@ -33,9 +33,11 @@
 			opacity: 1;
 			transition: opacity 1s ease;
 		}
-		/* Nasconde tutto tranne l'intro all'inizio */
+		/* Nascondi tutto tranne #intro con opacità e disabilita interazioni */
 		body > *:not(#intro) {
-			display: none;
+			opacity: 0;
+			pointer-events: none;
+			transition: opacity 0.5s ease;
 		}
 	</style>
 
@@ -45,8 +47,11 @@
 				$("#intro-logo").css("opacity", 0);
 				setTimeout(function() {
 					$("#intro").hide();
-					// Mostra il resto del contenuto dopo che l'intro è sparito
-					$("body > *:not(#intro)").show();
+					// Mostra il resto del contenuto: opacity a 1 e pointer-events abilitati
+					$("body > *:not(#intro)").css({
+						"opacity": "1",
+						"pointer-events": "auto"
+					});
 				}, 1000);
 			}, 3000);
 		});
