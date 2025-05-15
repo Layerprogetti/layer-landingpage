@@ -24,7 +24,16 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      opacity: 0;
       transition: opacity 1s ease;
+    }
+
+    #intro.show {
+      opacity: 1;
+    }
+
+    #intro.fade-out {
+      opacity: 0;
     }
 
     #intro-logo {
@@ -68,24 +77,12 @@
     <div class="container">
       <h1>Gallery</h1>
       <ul>
-        <li>
-          <a href="images/image1.jpg" rel="lightbox-journey" title="Bee on Flower"><img src="images/image1.jpg" alt="Portfolio Image"></a>
-        </li>
-        <li>
-          <a href="images/image2.jpg" rel="lightbox-journey" title="Purple Flowers"><img src="images/image2.jpg" alt="Portfolio Image"></a>
-        </li>
-        <li>
-          <a href="images/image3.jpg" rel="lightbox-journey" title="Sun Flower"><img src="images/image3.jpg" alt="Portfolio Image"></a>
-        </li>
-        <li>
-          <a href="images/image4.jpg" rel="lightbox-journey" title="Bell Amphitheater, Camp John Hay"><img src="images/image4.jpg" alt="Portfolio Image"></a>
-        </li>
-        <li>
-          <a href="images/image5.jpg" rel="lightbox-journey" title="Hundred Islands, Pangasinan"><img src="images/image5.jpg" alt="Portfolio Image"></a>
-        </li>
-        <li class="last">
-          <a href="images/image6.jpg" rel="lightbox-journey" title="Hundred Islands, Pangasinan"><img src="images/image6.jpg" alt="Portfolio Image"></a>
-        </li>
+        <li><a href="images/image1.jpg" rel="lightbox-journey" title="Bee on Flower"><img src="images/image1.jpg" alt="Portfolio Image"></a></li>
+        <li><a href="images/image2.jpg" rel="lightbox-journey" title="Purple Flowers"><img src="images/image2.jpg" alt="Portfolio Image"></a></li>
+        <li><a href="images/image3.jpg" rel="lightbox-journey" title="Sun Flower"><img src="images/image3.jpg" alt="Portfolio Image"></a></li>
+        <li><a href="images/image4.jpg" rel="lightbox-journey" title="Bell Amphitheater, Camp John Hay"><img src="images/image4.jpg" alt="Portfolio Image"></a></li>
+        <li><a href="images/image5.jpg" rel="lightbox-journey" title="Hundred Islands, Pangasinan"><img src="images/image5.jpg" alt="Portfolio Image"></a></li>
+        <li class="last"><a href="images/image6.jpg" rel="lightbox-journey" title="Hundred Islands, Pangasinan"><img src="images/image6.jpg" alt="Portfolio Image"></a></li>
       </ul>
     </div>
   </div>
@@ -104,16 +101,26 @@
     </div>
   </footer>
 
-  <!-- Dissolvenza logo -->
+  <!-- Dissolvenza in e out del logo -->
   <script>
     window.addEventListener('load', function () {
       const intro = document.getElementById('intro');
+      
+      // Fade-in
       setTimeout(() => {
-        intro.style.opacity = 0;
-        setTimeout(() => {
-          intro.style.display = 'none';
-        }, 1000);
-      }, 2000);
+        intro.classList.add('show');
+      }, 100);
+
+      // Fade-out
+      setTimeout(() => {
+        intro.classList.remove('show');
+        intro.classList.add('fade-out');
+      }, 2100);
+
+      // Rimuove il div dopo l'animazione
+      setTimeout(() => {
+        intro.style.display = 'none';
+      }, 3100);
     });
   </script>
 
