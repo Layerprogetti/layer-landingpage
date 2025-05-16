@@ -3,261 +3,184 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="description" content="Design your Business" />
-  <meta name="keywords" content="Retail, Design, Interior, Stand, Progetti" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>LAYER Retail Design</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;500&display=swap" rel="stylesheet">
   <link rel="icon" href="images/favicon layer.png" type="image/png" />
 
-  <!-- Font Poppins Medium + Thin -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;500&display=swap" rel="stylesheet">
-
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
     body {
+      margin: 0;
       font-family: 'Poppins', sans-serif;
       font-weight: 100;
-      background: white;
-      color: black;
+      background: #fff;
+      color: #000;
     }
-
     header {
+      border-bottom: 1px solid black;
+      padding: 1rem 2rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 20px 40px;
-      border-bottom: 1px solid black;
     }
-
-    .site-logo {
+    .logo {
       height: 40px;
     }
-
-    nav ul {
-      display: flex;
-      gap: 30px;
-      list-style: none;
-      font-weight: 100;
-    }
-
-    nav ul li a {
+    nav a {
+      margin-left: 20px;
       text-decoration: none;
-      color: black;
+      color: #000;
+      font-weight: 100;
       position: relative;
     }
-
-    nav ul li a::after {
+    nav a::after {
       content: '';
       position: absolute;
+      width: 0;
+      height: 1px;
       left: 0;
       bottom: -2px;
-      width: 0%;
-      height: 1px;
-      background: black;
+      background-color: black;
       transition: width 0.3s ease;
     }
-
-    nav ul li a:hover::after {
+    nav a:hover::after {
       width: 100%;
     }
 
-    .gallery {
+    .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 20px;
-      padding: 40px;
+      padding: 2rem;
     }
-
-    .project-tile {
+    .project {
       position: relative;
       overflow: hidden;
       cursor: pointer;
-      transition: transform 0.3s ease;
     }
-
-    .project-tile img {
+    .project img {
       width: 100%;
       height: auto;
+      transition: transform 0.3s ease, opacity 0.3s ease;
       display: block;
-      transition: opacity 0.3s ease;
     }
-
-    .project-title {
+    .project:hover img {
+      transform: scale(1.03);
+      opacity: 0.5;
+    }
+    .project-name {
       position: absolute;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      color: black;
+      opacity: 0;
+      transition: opacity 0.3s ease;
       font-weight: 500;
-      font-size: 1em;
       text-align: center;
-      pointer-events: none;
     }
-
-    .project-tile:hover {
-      transform: scale(1.02);
-    }
-
-    .project-tile:hover img {
-      opacity: 0.3;
+    .project:hover .project-name {
+      opacity: 1;
     }
 
     footer {
-      padding: 40px 20px;
-      text-align: center;
+      padding: 2rem;
       border-top: 1px solid black;
-    }
-
-    .footer-contacts {
+      text-align: left;
       display: flex;
       flex-direction: column;
       gap: 10px;
-      align-items: center;
-      margin-top: 20px;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 100;
     }
-
-    .footer-contact {
+    .footer-line {
       display: flex;
       align-items: center;
       gap: 10px;
-      font-weight: 100;
+    }
+    .footer-line img {
+      width: 16px;
+      height: 16px;
     }
 
-    .footer-contact img {
-      width: 18px;
-      height: auto;
-    }
-
-    /* Intro */
-    #intro {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      background: white;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 9999;
-      opacity: 1;
-      transition: opacity 1s ease;
-    }
-
-    #intro.fade-out {
-      opacity: 0;
-      pointer-events: none;
-    }
-
-    #intro-logo {
-      max-width: 300px;
-      max-height: 300px;
-      opacity: 1;
-      animation: fadeInOut 3s forwards;
-    }
-
-    @keyframes fadeInOut {
-      0% {opacity: 0;}
-      20% {opacity: 1;}
-      80% {opacity: 1;}
-      100% {opacity: 0;}
-    }
-
-    html.loading *:not(#intro) {
-      visibility: hidden;
-    }
-
-    @media (max-width: 768px) {
-      header {
+    @media (max-width: 600px) {
+      nav {
+        display: flex;
         flex-direction: column;
-        gap: 20px;
-      }
-
-      .gallery {
-        padding: 20px;
-        gap: 15px;
+        gap: 10px;
       }
     }
   </style>
+</head>
+<body>
+
+  <!-- Intro -->
+  <div id="intro" style="position: fixed; top:0; left:0; width:100%; height:100vh; background:white; display:flex; align-items:center; justify-content:center; z-index:9999; opacity:1; transition:opacity 1s ease;">
+    <img src="images/layer logo.svg" alt="Logo" style="max-width:300px; max-height:300px; animation: fadeInOut 3s forwards;">
+  </div>
 
   <script>
-    document.documentElement.classList.add('loading');
-
-    window.addEventListener('load', function () {
-      const intro = document.getElementById('intro');
-      if (sessionStorage.getItem('introShown') === 'true') {
-        intro.style.display = 'none';
-        document.documentElement.classList.remove('loading');
+    document.addEventListener('DOMContentLoaded', () => {
+      if(sessionStorage.getItem('introShown') === 'true') {
+        document.getElementById('intro').style.display = 'none';
       } else {
         setTimeout(() => {
-          intro.classList.add('fade-out');
+          document.getElementById('intro').style.opacity = '0';
           setTimeout(() => {
-            intro.style.display = 'none';
-            document.documentElement.classList.remove('loading');
+            document.getElementById('intro').style.display = 'none';
             sessionStorage.setItem('introShown', 'true');
           }, 1000);
         }, 3000);
       }
     });
   </script>
-</head>
 
-<body>
-  <!-- INTRO LOGO -->
-  <div id="intro">
-    <img src="images/layer logo.svg" alt="Logo" id="intro-logo" />
-  </div>
-
-  <!-- HEADER -->
   <header>
-    <a href="index.html">
-      <img src="images/layer logo bandiera.svg" alt="LAYER Retail Design" class="site-logo" />
-    </a>
+    <img src="images/layer logo bandiera.svg" alt="LAYER Logo" class="logo">
     <nav>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="#footer">Contatti</a></li>
-      </ul>
+      <a href="#">Home</a>
+      <a href="#about">About</a>
+      <a href="#contatti">Contatti</a>
     </nav>
   </header>
 
-  <!-- GALLERY -->
-  <main>
-    <div class="gallery">
-      <!-- Ripeti questo blocco per ogni progetto -->
-      <div class="project-tile">
-        <img src="images/immagine demo.jpg" alt="Progetto 1" />
-        <div class="project-title">Nome Progetto</div>
-      </div>
-      <div class="project-tile">
-        <img src="images/immagine demo.jpg" alt="Progetto 2" />
-        <div class="project-title">Nome Progetto</div>
-      </div>
-      <div class="project-tile">
-        <img src="images/immagine demo.jpg" alt="Progetto 3" />
-        <div class="project-title">Nome Progetto</div>
-      </div>
+  <main class="grid">
+    <div class="project">
+      <img src="images/immagine demo.jpg" alt="Progetto 1">
+      <div class="project-name">nome progetto</div>
+    </div>
+    <div class="project">
+      <img src="images/immagine demo.jpg" alt="Progetto 2">
+      <div class="project-name">nome progetto</div>
+    </div>
+    <div class="project">
+      <img src="images/immagine demo.jpg" alt="Progetto 3">
+      <div class="project-name">nome progetto</div>
+    </div>
+    <div class="project">
+      <img src="images/immagine demo.jpg" alt="Progetto 4">
+      <div class="project-name">nome progetto</div>
     </div>
   </main>
 
-  <!-- FOOTER -->
-  <footer id="footer">
-    <p>LAYER Retail Design è Main Designer per COSPE</p>
-    <div class="footer-contacts">
-      <div class="footer-contact">
-        <img src="images/posizione.svg" alt="Posizione">
-        <p>Via Esempio 123, Città</p>
-      </div>
-      <div class="footer-contact">
-        <img src="images/mail.svg" alt="Email">
-        <p>f.toscano@layerprogetti.com</p>
-      </div>
+  <footer id="contatti">
+    <div class="footer-line">
+      <img src="images/posizione.svg" alt="Posizione">
+      <span>Via Esempio 123, Milano</span>
+    </div>
+    <div class="footer-line">
+      <img src="images/mail.svg" alt="Mail">
+      <span>info@layerprogetti.com</span>
     </div>
   </footer>
+
+  <style>
+    @keyframes fadeInOut {
+      0% {opacity: 0;}
+      20% {opacity: 1;}
+      80% {opacity: 1;}
+      100% {opacity: 0;}
+    }
+  </style>
 </body>
 </html>
