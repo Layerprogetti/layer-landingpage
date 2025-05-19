@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Design your Business" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Design your Business">
   <title>Layer Progetti</title>
-  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css">
+  <script defer src="script.js"></script>
 </head>
 <body>
   <!-- INTRO ANIMATA -->
@@ -29,28 +30,40 @@
 
   <!-- HOME PAGE -->
   <main id="home">
-    <section class="grid-progetti">
-      <!-- Esempio di un progetto -->
-      <div class="progetto">
-        <img src="immagine demo.svg" alt="nome progetto" />
-        <div class="overlay"><span>nome progetto</span></div>
+    <section class="grid">
+      <div class="grid-item">
+        <img src="immagine demo.svg" alt="nome progetto">
+        <div class="project-title">nome progetto</div>
       </div>
-      <!-- Altri progetti -->
+      <div class="grid-item">
+        <img src="immagine demo.svg" alt="nome progetto">
+        <div class="project-title">nome progetto</div>
+      </div>
+      <div class="grid-item">
+        <img src="immagine demo.svg" alt="nome progetto">
+        <div class="project-title">nome progetto</div>
+      </div>
+      <div class="grid-item">
+        <img src="immagine demo.svg" alt="nome progetto">
+        <div class="project-title">nome progetto</div>
+      </div>
     </section>
   </main>
 
   <!-- ABOUT PAGE -->
-  <section id="about" class="about-section">
-    <div class="about-text">
-      <h1>About</h1>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>
-    </div>
-    <div class="about-image">
-      <img src="immagine demo.svg" alt="About Project" />
+  <section id="about" class="about">
+    <h2>About</h2>
+    <div class="about-content">
+      <div class="about-text">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur et dolor eget erat fringilla porttitor non id erat. Integer id justo id elit malesuada sagittis. Nulla facilisi.</p>
+      </div>
+      <div class="about-image">
+        <img src="immagine demo.svg" alt="About Project" />
+      </div>
     </div>
   </section>
 
-  <!-- CONTATTI / FOOTER -->
+  <!-- FOOTER CONTATTI -->
   <footer id="contatti">
     <p><strong>LAYER Retail Design è Main Designer per COSPE</strong></p>
     <hr />
@@ -59,7 +72,5 @@
       <div><img src="mail.svg" alt="email" /> ftossona@layerprogetti.com</div>
     </div>
   </footer>
-
-  <script src="script.js"></script>
 </body>
 </html>
