@@ -1,19 +1,18 @@
+
 .logo {
-  height: 50px; /* aumentato */
+  height: 50px;
 }
 
-/* griglia homepage */
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* slot più piccoli */
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   gap: 20px;
   padding: 40px;
 }
 
-/* immagini progetto */
 .project-gallery {
   padding: 40px;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* slot più piccoli */
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 20px;
 }
