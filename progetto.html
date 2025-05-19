@@ -2,13 +2,15 @@
 <html lang="it">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Progetto – Layer</title>
-  <link rel="stylesheet" href="style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Progetto</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="images/favicon layer.png" />
+  <meta property="og:title" content="Design your Business" />
 </head>
 <body>
   <header>
-    <img src="images/layer logo bandiera.svg" alt="Logo" class="logo" />
+    <img src="images/layer logo bandiera.svg" alt="Logo" class="logo header-large" />
     <nav>
       <ul>
         <li><a href="index.html">Home</a></li>
@@ -17,16 +19,41 @@
       </ul>
     </nav>
   </header>
-  <main class="project-gallery">
-    <a href="progetto-aperto.html"><img src="images/immagine demo.jpg" alt="img1"></a>
-    <a href="progetto-aperto.html"><img src="images/immagine demo.jpg" alt="img2"></a>
+  <hr class="divider" />
+  <main class="project-detail">
+    <div class="project-gallery">
+      <img src="images/immagine demo.jpg" alt="Immagine 1" onclick="openImage(this)" />
+      <img src="images/immagine demo.jpg" alt="Immagine 2" onclick="openImage(this)" />
+      <img src="images/immagine demo.jpg" alt="Immagine 3" onclick="openImage(this)" />
+    </div>
+    <div class="project-description">
+      <p>Descrizione del progetto: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae eros at quam tincidunt tincidunt.</p>
+    </div>
   </main>
   <footer id="contatti">
-    <p><strong>LAYER Retail Design è Main Designer per COSPE</strong></p>
     <div class="contatti">
-      <div><img src="images/posizione.svg" alt="posizione" /> Via G. Maggiolini 15, Monza</div>
-      <div><img src="images/mail.svg" alt="email" /> f.toscano@layerprogetti.com</div>
+      <div><img src="images/posizione.svg" alt="Posizione" /> Indirizzo esempio</div>
+      <div><img src="images/mail.svg" alt="Email" /> email@example.com</div>
     </div>
   </footer>
+
+  <!-- Modal per immagine ingrandita -->
+  <div id="modal" class="modal">
+    <span class="close-btn" onclick="closeModal()">&times;</span>
+    <img class="modal-content" id="modal-img" />
+    <div id="caption"></div>
+  </div>
+
+  <script>
+    function openImage(element) {
+      document.getElementById("modal").style.display = "block";
+      document.getElementById("modal-img").src = element.src;
+      document.getElementById("caption").innerHTML = element.alt;
+    }
+
+    function closeModal() {
+      document.getElementById("modal").style.display = "none";
+    }
+  </script>
 </body>
 </html>
