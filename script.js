@@ -1,6 +1,7 @@
+
 window.addEventListener('load', () => {
   const intro = document.querySelector('.intro');
-  if (sessionStorage.getItem('introShown')) {
+  if (sessionStorage.getItem('introShown') === 'true') {
     intro.style.display = 'none';
   } else {
     setTimeout(() => {
