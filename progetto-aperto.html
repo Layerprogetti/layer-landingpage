@@ -2,13 +2,17 @@
 <html lang="it">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Progetto Aperto</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="images/favicon layer.png" />
+  <meta property="og:title" content="Design your Business" />
 </head>
-<body class="open">
-  <button class="close-btn" onclick="window.location.href='progetto.html'">X</button>
-  <img src="images/immagine demo.jpg" alt="Progetto Ingrandito">
-  <div class="project-name">nome progetto</div>
+<body>
+  <div class="fade fade-in">
+    <button class="close-btn" onclick="window.history.back();">&times;</button>
+    <img src="images/immagine demo.jpg" alt="Immagine Ingrandita" class="opened-img" />
+    <div class="project-name">Nome Progetto</div>
+  </div>
 </body>
 </html>
