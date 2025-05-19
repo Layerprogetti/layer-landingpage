@@ -1,18 +1,102 @@
+/* FONT */
+body {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 200;
+  background: white;
+  color: black;
+  margin: 0;
+  padding: 0;
+}
 
+/* HEADER */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+}
 .logo {
   height: 50px;
 }
 
+/* MENU */
+nav a {
+  margin-left: 20px;
+  text-decoration: none;
+  color: black;
+}
+
+/* INTRO ANIMATA */
+#intro {
+  position: fixed;
+  inset: 0;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  animation: fadeOut 2s ease 1 forwards;
+  animation-delay: 2s;
+}
+.intro-logo {
+  max-width: 150px;
+  animation: fadeIn 1s ease forwards;
+  animation-delay: 0.5s;
+}
+@keyframes fadeIn { to { opacity: 1; } }
+@keyframes fadeOut { to { opacity: 0; visibility: hidden; } }
+
+/* GALLERIA PROGETTI */
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   gap: 20px;
   padding: 40px;
 }
+.project-thumb {
+  position: relative;
+  cursor: pointer;
+}
+.project-thumb img {
+  width: 100%;
+  transition: transform 0.3s ease;
+}
+.project-thumb:hover img {
+  transform: scale(1.05);
+}
+.overlay {
+  position: absolute;
+  bottom: 0;
+  background: rgba(255,255,255,0.8);
+  width: 100%;
+  text-align: center;
+  padding: 5px 0;
+  font-weight: 500;
+}
 
+/* GALLERIA DETTAGLIO */
 .project-gallery {
-  padding: 40px;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 20px;
+  padding: 40px;
+}
+.project-image img {
+  width: 100%;
+  display: block;
+}
+
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 40px;
+  border-top: 1px solid #ccc;
+}
+footer .contatti {
+  margin-top: 10px;
+}
+footer img {
+  height: 16px;
+  margin-right: 8px;
+  vertical-align: middle;
 }
