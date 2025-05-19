@@ -3,57 +3,44 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Progetto</title>
+  <meta name="description" content="Design your Business" />
+  <title>Progetto – Layer Progetti</title>
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
-  <link rel="icon" href="images/favicon layer.png" />
-  <meta property="og:title" content="Design your Business" />
 </head>
 <body>
+  <!-- Header -->
   <header>
-    <img src="images/layer logo bandiera.svg" alt="Logo" class="logo header-large" />
+    <img src="images/layer logo bandiera.svg" alt="Logo" class="logo" />
     <nav>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="#contatti">Contatti</a></li>
-      </ul>
+      <a href="index.html" class="menu-link">Home</a>
+      <a href="about.html" class="menu-link">About</a>
+      <a href="#footer" class="menu-link">Contatti</a>
     </nav>
   </header>
-  <hr class="divider" />
-  <main class="project-detail">
-    <div class="project-gallery">
-      <img src="images/immagine demo.jpg" alt="Immagine 1" onclick="openImage(this)" />
-      <img src="images/immagine demo.jpg" alt="Immagine 2" onclick="openImage(this)" />
-      <img src="images/immagine demo.jpg" alt="Immagine 3" onclick="openImage(this)" />
-    </div>
-    <div class="project-description">
-      <p>Descrizione del progetto: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae eros at quam tincidunt tincidunt.</p>
-    </div>
+
+  <!-- Galleria progetto -->
+  <main>
+    <section class="project-gallery">
+      <div class="project-image" onclick="openImage('images/immagine demo.jpg', 'Nome Progetto')">
+        <img src="images/immagine demo.jpg" alt="Dettaglio progetto" />
+      </div>
+      <!-- altre immagini -->
+      <h2>Nome Progetto – Luogo</h2>
+      <p>Descrizione dettagliata del progetto, materiali utilizzati, obiettivi progettuali e soluzioni adottate.</p>
+    </section>
   </main>
-  <footer id="contatti">
+
+  <!-- Footer -->
+  <footer id="footer">
+    <p>LAYER Retail Design è Main Designer per COSPE</p>
     <div class="contatti">
-      <div><img src="images/posizione.svg" alt="Posizione" /> Indirizzo esempio</div>
+      <div><img src="images/posizione.svg" alt="Posizione" /> Indirizzo</div>
       <div><img src="images/mail.svg" alt="Email" /> email@example.com</div>
     </div>
   </footer>
 
-  <!-- Modal per immagine ingrandita -->
-  <div id="modal" class="modal">
-    <span class="close-btn" onclick="closeModal()">&times;</span>
-    <img class="modal-content" id="modal-img" />
-    <div id="caption"></div>
-  </div>
-
-  <script>
-    function openImage(element) {
-      document.getElementById("modal").style.display = "block";
-      document.getElementById("modal-img").src = element.src;
-      document.getElementById("caption").innerHTML = element.alt;
-    }
-
-    function closeModal() {
-      document.getElementById("modal").style.display = "none";
-    }
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
