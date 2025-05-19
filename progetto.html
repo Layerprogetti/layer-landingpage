@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Design your Business" />
   <title>Progetto – LAYER Retail Design</title>
-  <link rel="icon" type="image/svg+xml" href="images/favicon.svg" />
+  <link rel="icon" href="images/favicon.svg" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
@@ -18,25 +18,9 @@
       <a href="#footer" class="menu-link">Contatti</a>
     </nav>
   </header>
-
   <main>
-    <section class="project-gallery">
-      <!-- Cambia src per modificare immagine, alt per descrizione -->
-      <div class="project-image" onclick="openImage('images/immagine demo.jpg', 'Nome Progetto')">
-        <img src="images/immagine demo.jpg" alt="Vista 1" />
-      </div>
-      <div class="project-image" onclick="openImage('images/immagine demo.jpg', 'Nome Progetto')">
-        <img src="images/immagine demo.jpg" alt="Vista 2" />
-      </div>
-      <div class="project-image" onclick="openImage('images/immagine demo.jpg', 'Nome Progetto')">
-        <img src="images/immagine demo.jpg" alt="Vista 3" />
-      </div>
-      <!-- Titolo e descrizione modificabili -->
-      <h2>Nome Progetto – Luogo</h2>
-      <p>Descrizione del progetto qui. Puoi scrivere testo libero per spiegare materiali, soluzioni, ecc.</p>
-    </section>
+    <section class="project-gallery" id="project-container"></section>
   </main>
-
   <footer id="footer">
     <p>LAYER Retail Design è Main Designer per COSPE</p>
     <div class="contatti">
@@ -44,7 +28,6 @@
       <div><img src="images/mail.svg" alt="Email" /> email@example.com</div>
     </div>
   </footer>
-
   <script src="script.js"></script>
 </body>
 </html>

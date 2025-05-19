@@ -5,15 +5,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Design your Business" />
   <title>Progetto Aperto – LAYER Retail Design</title>
-  <link rel="icon" type="image/svg+xml" href="images/favicon.svg" />
+  <link rel="icon" href="images/favicon.svg" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body class="progetto-aperto">
   <div class="lightbox">
     <button class="close-btn" onclick="window.history.back()">×</button>
-    <img src="images/immagine demo.jpg" alt="Progetto" class="lightbox-img" />
-    <h2 class="project-title">Nome Progetto</h2>
+    <img src="" alt="Progetto" class="lightbox-img" id="lightbox-img" />
+    <h2 class="project-title" id="project-title">Nome Progetto</h2>
   </div>
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    document.getElementById('lightbox-img').src = params.get('img');
+    document.getElementById('project-title').textContent = params.get('title') || '';
+  </script>
 </body>
 </html>
