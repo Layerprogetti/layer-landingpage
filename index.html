@@ -1,3 +1,4 @@
+<!-- sostituisci il contenuto del tuo attuale index.html con questo -->
 <!DOCTYPE html>
 <html lang="it">
 <head>
@@ -10,12 +11,10 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <!-- Intro animata -->
   <div id="intro">
     <img src="images/layer logo.svg" alt="Layer Logo" class="intro-logo" />
   </div>
 
-  <!-- Header -->
   <header>
     <img src="images/layer logo bandiera.svg" alt="Logo" class="logo" />
     <nav>
@@ -25,18 +24,19 @@
     </nav>
   </header>
 
-  <!-- Sezione progetti -->
   <main>
     <section class="projects-grid">
-      <div class="project-thumb" onclick="location.href='progetto.html'">
-        <img src="images/immagine demo.jpg" alt="Progetto demo" />
-        <div class="overlay"><span>Nome Progetto</span></div>
-      </div>
-      <!-- altre immagini dei progetti -->
+      <!-- 10 slot progetto -->
+      <!-- Puoi duplicare o sostituire con le immagini reali -->
+      ${[...Array(10)].map((_, i) => `
+        <div class="project-thumb" onclick="location.href='progetto.html'">
+          <img src="images/immagine demo.jpg" alt="Progetto ${i + 1}" />
+          <div class="overlay"><span>Progetto ${i + 1}</span></div>
+        </div>
+      `).join('')}
     </section>
   </main>
 
-  <!-- Footer -->
   <footer id="footer">
     <p>LAYER Retail Design è Main Designer per COSPE</p>
     <div class="contatti">
