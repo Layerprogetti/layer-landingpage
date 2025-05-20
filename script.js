@@ -1,9 +1,16 @@
-// Intro: rimuovi dopo 2.5s
+// Intro: solo alla prima visita
 window.addEventListener('load', () => {
   const intro = document.getElementById('intro');
-  setTimeout(() => {
-    if (intro) intro.style.display = 'none';
-  }, 2500);
+  const alreadyVisited = localStorage.getItem('visited');
+
+  if (!alreadyVisited && intro) {
+    setTimeout(() => {
+      intro.style.display = 'none';
+      localStorage.setItem('visited', 'true');
+    }, 2500);
+  } else if (intro) {
+    intro.style.display = 'none';
+  }
 });
 
 // Scroll su Contatti
