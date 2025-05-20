@@ -1,0 +1,285 @@
+
+<!DOCTYPE html>
+
+<html lang="it">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="Design Your Business" name="description"/>
+<title>LAYER Retail Design</title>
+<link href="images/favicon layer.png" rel="icon" type="image/png"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;500&amp;display=swap" rel="stylesheet"/>
+<style>
+    #intro {
+      position: fixed;
+      z-index: 2000;
+      background: white;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      animation: fadeOut 2s ease forwards 2s;
+    }
+    #intro img {
+      max-width: 200px;
+      opacity: 0;
+      animation: fadeIn 1s ease forwards;
+    }
+    @keyframes fadeOut {
+      to { opacity: 0; visibility: hidden; }
+    }
+    @keyframes fadeIn {
+      to { opacity: 1; }
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: white;
+      color: black;
+    }
+    h1, h2, h3 {
+      font-weight: 500;
+    }
+    p, a, span {
+      font-weight: 100;
+    }
+    header {
+      padding: 15px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid black;
+      background: white;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+    }
+    nav a {
+      margin-left: 20px;
+      text-decoration: none;
+      color: black;
+      position: relative;
+    }
+    nav a::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -2px;
+      width: 0;
+      height: 1px;
+      background: black;
+      transition: width 0.3s;
+    }
+    nav a:hover::after {
+      width: 100%;
+    }
+    section {
+      padding: 60px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+    .fade-in {
+      opacity: 0;
+      transform: scale(0.9);
+      animation: fadeInZoom 1s ease-out forwards;
+    }
+    @keyframes fadeInZoom {
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 20px;
+    }
+    .project {
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+    .project img {
+      width: 100%;
+      height: auto;
+      transition: transform 0.5s ease;
+    }
+    .project:hover img {
+      transform: scale(1.50);
+    }
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(255,255,255,0.98);
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: start;
+      padding-top: 80px;
+      z-index: 1000;
+    }
+    .overlay.active {
+  overflow-y: auto;
+      display: flex;
+      animation: fadeInZoom 0.8s ease-out forwards;
+    }
+    .overlay .images-container {
+  max-height: 70vh;
+  overflow-y: auto;
+  padding-bottom: 30px;
+
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      margin-bottom: 20px;
+    }
+    .overlay img {
+      max-width: 40vw;
+      max-height: 50vh;
+      opacity: 0;
+      animation: fadeInImage 1s ease forwards;
+    }
+    @keyframes fadeInImage {
+      to { opacity: 1; }
+    }
+    .overlay .description {
+      max-width: 600px;
+      text-align: center;
+    }
+    .close-btn {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      font-size: 24px;
+      cursor: pointer;
+    }
+    footer {
+      padding: 40px 20px;
+      text-align: center;
+      border-top: 1px solid black;
+    }
+    footer h3 {
+      font-weight: 500;
+      margin-bottom: 10px;
+    }
+    .contacts span {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 5px 0;
+    }
+    .contacts img {
+      width: 20px;
+      height: 20px;
+    }
+  </style>
+</head>
+<body>
+<div id="intro">
+<img alt="Intro Logo" src="images/layer logo.svg"/>
+</div>
+<header>
+<img alt="Layer Logo" src="images/layer logo bandiera.svg" style="height: 60px;"/>
+<nav>
+<a href="#projects">Progetti</a>
+<a href="#about">About</a>
+<a href="#contact">Contatti</a>
+</nav>
+</header>
+<section class="fade-in" id="projects">
+<h2>Progetti</h2>
+<div class="grid">
+<div class="project" onclick="openOverlay(['images/progetto1a.jpg','images/progetto1b.jpg','images/progetto1c.jpg'], 'Progetto 1', 'Prova di testo, interno progetto. sembra funzionare, vediamo quanto posso scrivere prima che escano problemi.')">
+<img alt="Progetto 1" src="images/progetto1_thumb.jpg"/>
+</div>
+<div class="project" onclick="openOverlay(['images/progetto2a.jpg','images/progetto2b.jpg','images/progetto2c.jpg'], 'Progetto 2', 'Questo progetto rappresenta un concept unico nel suo genere, combinando estetica e funzionalità in un ambiente contemporaneo.')">
+<img alt="Progetto 2" src="images/progetto2_thumb.jpg"/>
+</div>
+<div class="project" onclick="openOverlay(['images/progetto3a.jpg','images/progetto3b.jpg','images/progetto3c.jpg'], 'Progetto 3', 'Questo progetto rappresenta un concept unico nel suo genere, combinando estetica e funzionalità in un ambiente contemporaneo.')">
+<img alt="Progetto 3" src="images/progetto3_thumb.jpg"/>
+</div>
+<div class="project" onclick="openOverlay(['images/progetto4a.jpg','images/progetto4b.jpg','images/progetto4c.jpg'], 'Progetto 4', 'Questo progetto rappresenta un concept unico nel suo genere, combinando estetica e funzionalità in un ambiente contemporaneo.')">
+<img alt="Progetto 4" src="images/progetto4_thumb.jpg"/>
+</div>
+<div class="project" onclick="openOverlay(['images/progetto5a.jpg','images/progetto5b.jpg','images/progetto5c.jpg'], 'Progetto 5', 'Questo progetto rappresenta un concept unico nel suo genere, combinando estetica e funzionalità in un ambiente contemporaneo.')">
+<img alt="Progetto 5" src="images/progetto5_thumb.jpg"/>
+</div>
+<div class="project" onclick="openOverlay(['images/progetto6a.jpg','images/progetto6b.jpg','images/progetto6c.jpg'], 'Progetto 6', 'Questo progetto rappresenta un concept unico nel suo genere, combinando estetica e funzionalità in un ambiente contemporaneo.')">
+<img alt="Progetto 6" src="images/progetto6_thumb.jpg"/>
+</div>
+<div class="project" onclick="openOverlay(['images/progetto7a.jpg','images/progetto7b.jpg','images/progetto7c.jpg'], 'Progetto 7', 'Questo progetto rappresenta un concept unico nel suo genere, combinando estetica e funzionalità in un ambiente contemporaneo.')">
+<img alt="Progetto 7" src="images/progetto7_thumb.jpg"/>
+</div>
+<div class="project" onclick="openOverlay(['images/progetto8a.jpg','images/progetto8b.jpg','images/progetto8c.jpg'], 'Progetto 8', 'Questo progetto rappresenta un concept unico nel suo genere, combinando estetica e funzionalità in un ambiente contemporaneo.')">
+<img alt="Progetto 8" src="images/progetto8_thumb.jpg"/>
+</div>
+<div class="project" onclick="openOverlay(['images/progetto9a.jpg','images/progetto9b.jpg','images/progetto9c.jpg'], 'Progetto 9', 'Questo progetto rappresenta un concept unico nel suo genere, combinando estetica e funzionalità in un ambiente contemporaneo.')">
+<img alt="Progetto 9" src="images/progetto9_thumb.jpg"/>
+</div>
+<div class="project" onclick="openOverlay(['images/progetto10a.jpg','images/progetto10b.jpg','images/progetto10c.jpg'], 'Progetto 10', 'Questo progetto rappresenta un concept unico nel suo genere, combinando estetica e funzionalità in un ambiente contemporaneo.')">
+<img alt="Progetto 10" src="images/progetto10_thumb.jpg"/>
+</div>
+</div>
+</section>
+<section class="fade-in" id="about">
+<h2>About</h2>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 40px;">
+<div style="flex: 1; min-width: 250px;">
+<p>Professionista della progettazione d'interni, creo spazi su misura per valorizzare ogni ambiente con equilibrio tra funzionalità ed estetica.</p>
+</div>
+<div style="flex: 1; min-width: 250px;">
+<img alt="About Image" src="images/about.jpg" style="width: 100%; height: auto; border: 1px solid black;"/>
+</div>
+</div>
+</section>
+<div class="overlay" id="overlay">
+<span class="close-btn" onclick="closeOverlay()">×</span>
+<div class="overlay-content" style="max-height: 90vh; overflow-y: auto; display: flex; flex-direction: column; align-items: center; padding: 40px 20px;">
+<div class="images-container" id="overlay-images" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px;"></div>
+<div class="description" id="overlay-description" style="margin-top: 30px; text-align: center;"></div>
+</div>
+</div>
+<section class="fade-in" id="contact">
+<h2>Contatti</h2>
+<div class="contacts">
+<span><img alt="mail" src="images/mail.svg"/> f.toscano@layerprogetti.com</span>
+<span><img alt="posizione" src="images/posizione.svg"/> Via G. Maggiolini 15, 20900 Monza (MB)</span>
+<span><img alt="instagram" src="images/instagram.svg"/> <a href="https://instagram.com/profilo" target="_blank">layer_retail_design</a></span>
+</div>
+</section>
+<footer>
+<h3>LAYER Retail Design è Main Designer per COSPE</h3>
+<p>© 2025 Francesco G. Toscano. Tutti i diritti riservati.</p>
+</footer>
+<script>
+    function openOverlay(imageSrcArray, title, description) {
+      const overlayImages = document.getElementById('overlay-images');
+      overlayImages.innerHTML = '';
+      imageSrcArray.forEach(src => {
+        const img = document.createElement('img');
+        img.src = src;
+        overlayImages.appendChild(img);
+      });
+      document.getElementById('overlay-description').innerHTML = `<div style='padding: 40px 20px; text-align: center; color: black; font-family: Poppins, sans-serif;'>
+        <h3 style='font-weight: 500; font-family: Poppins, sans-serif; font-size: 1.5em; margin: 20px 0;'>${title}</h3>
+        <p style='font-weight: 100; font-family: Poppins, sans-serif; font-size: 1em; line-height: 1.6;'>${description}</p></div>`;
+      document.getElementById('overlay').classList.add('active');
+    }
+
+    function closeOverlay() {
+      document.getElementById('overlay').classList.remove('active');
+    }
+  </script>
+</body>
+</html>
