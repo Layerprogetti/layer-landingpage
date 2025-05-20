@@ -28,6 +28,39 @@
       <div><img src="images/mail.svg" alt="Email" /> email@example.com</div>
     </div>
   </footer>
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const id = params.get("id");
+    const projectMap = {
+      project1: "landing_img1",
+      project2: "landing_img2",
+      project3: "landing_img3",
+      project4: "landing_img4",
+      project5: "landing_img5",
+      project6: "landing_img6",
+      project7: "landing_img7",
+      project8: "landing_img8",
+      project9: "landing_img9",
+      project10: "landing_img10"
+    };
+    const prefix = projectMap[id];
+    if (prefix) {
+      const container = document.getElementById("project-container");
+      container.innerHTML = `
+        <div class="project-image" onclick="openImage('images/${prefix}.jpg', '${prefix}')">
+          <img src="images/${prefix}.jpg" alt="${prefix}" />
+        </div>
+        <div class="project-image" onclick="openImage('images/${prefix}a.jpg', '${prefix}')">
+          <img src="images/${prefix}a.jpg" alt="${prefix}a" />
+        </div>
+        <div class="project-image" onclick="openImage('images/${prefix}b.jpg', '${prefix}')">
+          <img src="images/${prefix}b.jpg" alt="${prefix}b" />
+        </div>
+        <h2>${prefix.replace("landing_img", "Progetto ")}</h2>
+        <p>Descrizione del progetto. Inserire qui informazioni sul concept, realizzazione, materiali e risultati.</p>
+      `;
+    }
+  </script>
   <script src="script.js"></script>
 </body>
 </html>
