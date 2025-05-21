@@ -300,11 +300,11 @@
 
   .images-container {
     width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-    padding: 0 !important;
+    max-width: none;
+    height: auto;
+    object-fit: cover;
+    padding: 0;
+    margin: 0 auto;
   }
 
   .images-container img {
@@ -325,8 +325,9 @@
 
   /* Aggiunto per aumentare dimensione immagini progetti su mobile */
   .grid {
-    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-    gap: 15px;
+      display: flex;
+  flex-direction: column;
+  gap: 20px;
   }
 
   .project {
