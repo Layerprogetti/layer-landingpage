@@ -137,16 +137,15 @@
       display: flex;
       animation: fadeInZoom 0.8s ease-out forwards;
     }
-   .overlay .images-container {
-   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    .overlay .images-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   gap: 20px;
   width: 100%;
-  padding: 0 40px;
-  padding-bottom: 80px;
+  padding: 0 20px 80px 20px;
   box-sizing: border-box;
-  overflow: hidden;
-}
+} 
     .overlay img {
       max-width: 40vw;
       max-height: 50vh;
@@ -243,11 +242,13 @@
 
 .images-container img {
   width: 100%;
+  max-width: 600px;
   height: auto;
-  object-fit: cover;
+  object-fit: contain;
   opacity: 0;
   animation: fadeInImage 1s ease forwards;
 }
+
 
 .description {
   flex: 1;
