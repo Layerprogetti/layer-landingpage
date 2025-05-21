@@ -316,13 +316,28 @@
     margin: 0 auto;
   }
 
-  .description {
+    .description {
     width: 100%;
     padding: 0 20px 40px 20px;
     text-align: left;
     box-sizing: border-box;
   }
+
+  /* Aggiunto per aumentare dimensione immagini progetti su mobile */
+  .grid {
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 15px;
+  }
+
+  .project {
+    aspect-ratio: auto;
+  }
+
+  .project img {
+    height: auto;
+  }
 }
+
 
   </style>
 </head>
