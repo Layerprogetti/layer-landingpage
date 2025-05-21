@@ -281,6 +281,30 @@
 .link-underline:hover::after {
   width: 100%;
 }
+@media (max-width: 768px) {
+  .overlay-content {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .images-container,
+  .description {
+    max-width: 100%;
+    width: 100%;
+    padding: 0 20px;
+    box-sizing: border-box;
+  }
+
+  .images-container img {
+    width: 100%;
+    height: auto;
+  }
+
+  .description {
+    text-align: left;
+  }
+}
+
   </style>
 </head>
 <body>
